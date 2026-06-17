@@ -1,0 +1,88 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.04em;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+  white-space: nowrap;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+
+.btn:hover  { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+.btn[disabled],
+.btn[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Sizes ── */
+.btn--sm {
+  font-size: var(--text-sm);
+  padding: var(--space-2) var(--space-5);
+}
+
+.btn--md {
+  font-size: var(--text-base);
+  padding: var(--space-3) var(--space-8);
+}
+
+.btn--lg {
+  font-size: var(--text-lg);
+  padding: var(--space-4) var(--space-10);
+}
+
+/* ── Variants ── */
+.btn--primary {
+  background: var(--color-saffron);
+  color: var(--color-white);
+  border-color: var(--color-saffron);
+  box-shadow: var(--shadow-saffron);
+}
+.btn--primary:hover {
+  background: var(--color-saffron-dark);
+  border-color: var(--color-saffron-dark);
+  box-shadow: 0 6px 28px rgba(224, 138, 45, 0.45);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--color-saffron);
+  border-color: var(--color-saffron);
+}
+.btn--secondary:hover {
+  background: var(--color-saffron);
+  color: var(--color-white);
+}
+
+.btn--ghost {
+  background: rgba(255,255,255,0.15);
+  color: var(--color-white);
+  border-color: rgba(255,255,255,0.5);
+  backdrop-filter: blur(4px);
+}
+.btn--ghost:hover {
+  background: rgba(255,255,255,0.25);
+  border-color: var(--color-white);
+}
+
+.btn--dark {
+  background: var(--color-charcoal);
+  color: var(--color-cream);
+  border-color: var(--color-charcoal);
+}
+.btn--dark:hover {
+  background: var(--color-charcoal-light);
+}

@@ -1,0 +1,91 @@
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 8, 7, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+  padding: var(--space-4);
+}
+
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xl);
+}
+
+.lightbox-caption {
+  color: var(--color-sand);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-lg);
+  text-align: center;
+}
+
+.lightbox-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: rgba(255,255,255,0.12);
+  color: var(--color-white);
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  transition: background var(--transition-fast);
+  z-index: 1;
+}
+
+.lightbox-btn:hover { background: var(--color-saffron); }
+
+.lightbox-btn--prev { left: var(--space-4); }
+.lightbox-btn--next { right: var(--space-4); }
+
+.lightbox-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: rgba(255,255,255,0.12);
+  color: var(--color-white);
+  font-size: var(--text-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition-fast);
+}
+
+.lightbox-close:hover { background: var(--color-terracotta); }
+
+.lightbox-counter {
+  position: absolute;
+  bottom: var(--space-4);
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.7);
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 640px) {
+  .lightbox-btn { width: 44px; height: 44px; font-size: 1.5rem; }
+  .lightbox-btn--prev { left: var(--space-2); }
+  .lightbox-btn--next { right: var(--space-2); }
+}

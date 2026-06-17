@@ -1,0 +1,81 @@
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-16);
+  align-items: start;
+}
+
+.contact-info__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-4);
+}
+
+.contact-info__sub {
+  font-size: var(--text-lg);
+  color: var(--color-charcoal-light);
+  line-height: 1.75;
+  margin-bottom: var(--space-8);
+}
+
+.contact-info__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-bottom: var(--space-8);
+}
+
+.contact-info__item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.contact-info__icon { font-size: 1.5rem; margin-top: 2px; }
+
+.contact-info__label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-saffron);
+  margin-bottom: var(--space-1);
+}
+
+.contact-info__value {
+  font-size: var(--text-base);
+  color: var(--color-charcoal);
+  font-weight: var(--weight-medium);
+}
+
+a.contact-info__value:hover { color: var(--color-saffron); }
+
+/* social icons now use shared .social-icon-btn from global.css */
+
+/* ── Form ── */
+.contact-form-wrap {
+  background: var(--color-sand-light);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.contact-form__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-4);
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+}

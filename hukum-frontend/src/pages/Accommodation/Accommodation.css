@@ -1,0 +1,109 @@
+.page-hero-band {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+  margin-top: var(--navbar-height);
+}
+
+.page-hero-band__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-hero-band__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-hero);
+  z-index: 1;
+}
+
+.page-hero-band__content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-bottom: var(--space-12);
+}
+
+.page-hero-band__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-white);
+  line-height: 1.1;
+  margin-block: var(--space-2);
+}
+
+.page-hero-band__sub {
+  font-size: var(--text-xl);
+  color: rgba(255,255,255,0.85);
+  font-style: italic;
+}
+
+/* ── Accommodation grid ── */
+.accom-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+}
+
+.accom-card {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--color-white);
+}
+
+.accom-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.accom-card__body {
+  padding: var(--space-6);
+}
+
+.accom-card__meta {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.accom-card__price {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--color-saffron);
+}
+
+.accom-card__guests {
+  font-size: var(--text-sm);
+  color: var(--color-charcoal-light);
+}
+
+.accom-card__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-2);
+}
+
+.accom-card__desc {
+  font-size: var(--text-base);
+  color: var(--color-charcoal-light);
+  margin-bottom: var(--space-5);
+  line-height: 1.65;
+}
+
+.accom-card__actions {
+  display: flex;
+  gap: var(--space-3);
+}
+
+@media (max-width: 768px) {
+  .accom-grid { grid-template-columns: 1fr; }
+  .page-hero-band { height: 280px; }
+}

@@ -1,0 +1,331 @@
+@import './variables.css';
+@import './typography.css';
+@import './animations.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: 1.6;
+  color: var(--color-charcoal);
+  background-color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+/* ── Focus styles for accessibility ── */
+:focus-visible {
+  outline: 2px solid var(--color-saffron);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: var(--color-saffron);
+  color: var(--color-white);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-sand);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-saffron);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-terracotta);
+}
+
+/* ── Container ── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.container--wide {
+  max-width: var(--container-wide);
+}
+
+/* ── Section spacing ── */
+.section {
+  padding-block: var(--space-20);
+}
+
+.section--sm {
+  padding-block: var(--space-12);
+}
+
+.section--lg {
+  padding-block: var(--space-32);
+}
+
+/* ── Section headers ── */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-saffron);
+  margin-bottom: var(--space-3);
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+  font-weight: var(--weight-bold);
+  color: var(--color-charcoal);
+  line-height: 1.2;
+  margin-bottom: var(--space-4);
+}
+
+.section-subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-charcoal-light);
+  max-width: 600px;
+  margin-inline: auto;
+  line-height: 1.7;
+}
+
+/* ── Utility ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.text-center { text-align: center; }
+.text-saffron { color: var(--color-saffron); }
+.text-cream { color: var(--color-cream); }
+
+/* ── Divider ── */
+.divider {
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-sunset);
+  border-radius: var(--radius-full);
+  margin-inline: auto;
+  margin-block: var(--space-4);
+}
+
+/* ── Card base ── */
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+}
+
+/* ── Image zoom on hover ── */
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform var(--transition-slow);
+}
+
+.img-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* ── Overlay ── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-hero);
+}
+
+/* ── Loading state ── */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-12);
+}
+
+/* ── Form elements ── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form-label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-charcoal);
+}
+
+.form-input {
+  padding: var(--space-3) var(--space-4);
+  border: 1.5px solid var(--color-sand);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  color: var(--color-charcoal);
+  background: var(--color-white);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-saffron);
+  box-shadow: 0 0 0 3px rgba(224, 138, 45, 0.15);
+}
+
+.form-input::placeholder {
+  color: #aaa;
+}
+
+/* ── Error text ── */
+.error-text {
+  font-size: var(--text-sm);
+  color: #c0392b;
+}
+
+/* ── Success banner ── */
+.success-banner {
+  background: #e9f5e9;
+  color: #2e7d32;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid #81c784;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .section {
+    padding-block: var(--space-12);
+  }
+
+  .section--lg {
+    padding-block: var(--space-20);
+  }
+
+  .container {
+    padding-inline: var(--space-4);
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Social icon button — shared across Footer & Contact page
+   Brand glow on hover via CSS custom props --brand-bg / --brand-glow
+   variant: dark (footer) or light (contact page)
+════════════════════════════════════════════════════════════════ */
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  text-decoration: none;
+  transition:
+    background  0.25s ease,
+    box-shadow  0.25s ease,
+    color       0.25s ease,
+    transform   0.2s  ease;
+}
+
+/* Dark variant — inside Footer (charcoal bg) */
+.social-icon-btn--dark {
+  background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  color: rgba(233,220,195,0.85);
+}
+
+/* Light variant — inside Contact page (cream bg) */
+.social-icon-btn--light {
+  background: transparent;
+  border: 1.5px solid var(--color-sand);
+  color: var(--color-charcoal);
+}
+
+/* Hover — same for both variants: brand colour fill + glow */
+.social-icon-btn:hover {
+  background: var(--brand-bg);
+  border-color: var(--brand-bg);
+  color: #fff;
+  transform: translateY(-3px) scale(1.1);
+  box-shadow:
+    0 0 12px var(--brand-glow),
+    0 0 28px var(--brand-glow),
+    0 4px 12px rgba(0,0,0,0.25);
+}
