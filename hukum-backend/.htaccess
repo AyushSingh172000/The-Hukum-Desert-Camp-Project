@@ -1,0 +1,26 @@
+Options -Indexes
+
+# Deny direct access to config, models, helpers
+<FilesMatch "^(database|cors)\.php$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Allow OPTIONS preflight through
+    RewriteCond %{REQUEST_METHOD} OPTIONS
+    RewriteRule .* - [L]
+
+    # Force HTTPS in production (comment out for local dev)
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
